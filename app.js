@@ -2,6 +2,9 @@ let port = 1000;
 const _ES = require('express')
 const app = _ES();
 
+// For API
+let ApiKey = `10234895`;
+
 app.get('/', (req, res) => {
   res.status(503).sendStatus(503);
 })
@@ -25,8 +28,8 @@ app.get('/widgets/:id', (req, res) => {
             res.send("Invalid ID");
             throw new Error('Invalid ID');
         }
-
-        const widgetUrl = `https://api.twiz.lol/v3/widgets/${id}`;
+        // Powerd by twiz®
+        const widgetUrl = `https://api.twiz.lol/v3/widgets/${id}?apikey=${ApiKey}`;
 
         const widgetHTML = `
             <iframe
